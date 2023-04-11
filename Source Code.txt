@@ -1,0 +1,51 @@
+// No.1
+
+import pandas
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+import matplotlib.pyplot as plt
+
+
+
+// No.2
+
+df = pandas.read_csv("data.csv")
+
+print(df)
+
+
+
+// No.3
+
+d = {'UK': 0, 'USA': 1, 'N': 2}
+df['Nationality'] = df['Nationality'].map(d)
+d = {'YES': 1, 'NO': 0}
+df['Go'] = df['Go'].map(d)
+
+print(df)
+
+
+
+// No.4
+
+features = ['Age', 'Experience', 'Rank', 'Nationality']
+
+X = df[features]
+y = df['Go']
+
+print(X)
+print(y)
+
+
+
+// No.5
+
+dtree = DecisionTreeClassifier()
+dtree = dtree.fit(X, y)
+
+
+
+// No.6
+
+tree.plot_tree(dtree, feature_names=features)
+
